@@ -7,6 +7,7 @@ namespace EncapsulationLab
     {
         public static void Run()
         {
+            Console.WriteLine("Lines");
             var lines = int.Parse(Console.ReadLine());
             var persons = new List<Person>();
             for (int i = 0; i < lines; i++)
