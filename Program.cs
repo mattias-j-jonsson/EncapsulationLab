@@ -1,4 +1,7 @@
-﻿namespace EncapsulationLab
+﻿using System;
+using System.Collections.Generic;
+
+namespace EncapsulationLab
 {
     internal class Program
     {
