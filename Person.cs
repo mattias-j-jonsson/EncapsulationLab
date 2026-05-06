@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using System.Threading.Channels;
 
@@ -21,6 +22,10 @@ namespace EncapsulationLab
             }
             private set
             {
+                if(value.Length < 3)
+                {
+                    throw new ArgumentException("First name cannot contain fewer than 3 symbols!");
+                }
                 firstName = value;
             }
         }
@@ -33,6 +38,10 @@ namespace EncapsulationLab
             }
             private set
             {
+                if(value.Length < 3)
+                {
+                    throw new ArgumentException("Last name cannot contain fewer than 3 symbols!");
+                }
                 lastName = value;
             }
         }
@@ -40,13 +49,27 @@ namespace EncapsulationLab
         public int Age
         {
             get { return age; }
-            private set { age = value; }
+            private set 
+            {
+                if(value <= 0)
+                {
+                    throw new ArgumentException("Age cannot be zero or a negative integer");
+                }
+                age = value;
+            }
         }
 
         public decimal Salary
         {
             get { return salary; }
-            private set { salary = value; }
+            private set 
+            {
+                if (value.CompareTo((decimal) 460.0) <= 0)
+                {
+                    throw new ArgumentException("Salary has to be greater than 460 dollars (you monster)");
+                }
+                salary = value;
+            }
         }
 
         // Constructor(s) ---------------------------------
